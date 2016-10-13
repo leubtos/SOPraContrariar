@@ -29,7 +29,6 @@ _start:
 		movw	%ax, %ds
 		movw	%ax, %ss
 		movw	%ax, %fs
-
 		jmp start
 
 .type		getchar, @function
@@ -37,7 +36,7 @@ getchar:
 		movb 	$0x00, %ah
 
 		int 	$0x16 
-		movb	$0x0E, %ah #Write Character at Cursor
+		movb	$0x0E, %ah #We've tried 0x0A, didnt work
 
 		int	$0x10
 		ret
