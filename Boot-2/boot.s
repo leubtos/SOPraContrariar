@@ -33,14 +33,13 @@ _start:
 		jmp start
 
 .type		getchar, @function
-
-
 getchar:
 		movb 	$0x00, %ah
+
 		int 	$0x16 
-		movb	$0x0A, %ah #Write Character at Cursor
+		movb	$0x0E, %ah #Write Character at Cursor
+
 		int	$0x10
-	
 		ret
 
 start:
@@ -50,6 +49,5 @@ start:
 
 . = _start + 510
 .byte		0X55, 0xAA
-
 
 
