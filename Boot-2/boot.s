@@ -36,7 +36,7 @@ _start:
 
 
 getchar:
-		mov 	$0x00, %ah
+		movb 	$0x00, %ah
 		int 	$0x16 
 		movb	$0x0A, %ah #Write Character at Cursor
 		int	$0x10
