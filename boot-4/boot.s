@@ -36,9 +36,9 @@ _start:
 
 
 getchar:
-		movb 	$0x00, %ah
+		mov 	$0x00, %ah
 		int 	$0x16 
-		movb	$0x0A, %ah #Write Character at Cursor
+		movb	$0x0E, %ah #Write Character at Cursor
 		int	$0x10
 		ret
 
@@ -48,9 +48,10 @@ getchar:
 erase_screen:
 		
 		movb    $0x02, %al
-            	movb    $0x0,  %ah
-            	int     $0x10
-            	ret
+        movb    $0x0,  %ah
+        int     $0x10
+        jmp start
+            	
 
 
 text_string: .asciz  "BL versao 1.0"
@@ -95,6 +96,5 @@ start:
 
 . = _start + 510
 .byte		0X55, 0xAA
-
 
 
